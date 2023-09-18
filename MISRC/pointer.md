@@ -81,3 +81,19 @@ func = &add;
 ```
 然而，由于函数名称自动解引用为其地址，第一种形式在实际代码中更为常见。在某些编程环境中，使用第二种形式（带有&）可能会被视为更明确的表示，但它并不是必需的。
 
+定义函数指针的别名，在C/C++中可以使用typedef, C++11之后可以使用using，下面是一个使用实例：
+```c
+int myFunction(int x, double y) {
+    return x + (int)y;
+}
+
+typedef int(*FuncPtrType)(int, double);
+//using FuncPtrType = int (*)(int, double) 
+int main() {
+    FuncPtrType ptr = myFunction;
+    int result = ptr(3, 4.5);
+    return 0;
+}
+
+```
+
