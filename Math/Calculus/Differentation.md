@@ -1,32 +1,56 @@
 ## What Is A DERIVATIVE
 
 ### geometric interpretation
-从几何的角度来理解，导数就是在某条曲线，比如\(y = f(x)\)在点\(P(x_0, y_0)\)处的切线。理解切线这个概念可以引入曲线上另一个点\(Q(x_1,y_1)\)，连接两个点我们可以得到一条割线，但是当Q点无线接近P点时，割线就会变成P点的切线。
+从几何的角度来理解，导数就是某条曲线，比如\(y = f(x)\)在点\(P(x_0, y_0)\)处的切线。
+理解切线这个概念，可以引入曲线上另一个点\(Q(x_1,y_1)\)，连接两个点我们可以得到一条割线，但是当Q点无线接近P点时，割线就会变成P点的切线。
 
-
-### physical interpretation
 
 ## How To Differentiate any Function
-对于形如\(f(x) = x^n\)这样的函数，其导数可以表示为\(f'(x) = nx^{n-1}\).
+想要对任意方程或函数进行微分，需要做到两点：知道一些常见函数的微分形式；知道函数进行微分时需要遵守的规则。
+对于形如\(f(x) = x^n\)这样的函数，其导数可以表示为\(f'(x) = nx^{n-1}\). n为有理数的时候该市成立。
 
 ### Derivative Formular
 #### Specific
-针对特定的函数形式
-1. sin 和 cos
-知识回顾：\(sin(a+b)=sina *cosb + cosa*sinb, cos(a+b)=cosa*cosb-sina*sinb\)
-导数形式
-\((sinx)'=cosx, (cosx)'=-sinx\)
+针对特定的函数
+1. power function
+对于形如\(f(x) = x^n\)这样的幂函数，其导数可以表示为\(f'(x) = nx^{n-1}\). 其中\(n\)为有理数。
+
+2. sin 和 cos
+知识回顾：\(sin(a+b)=sin(a) *cos(b) + cos(a)*sin(b), cos(a+b)=cos(a)*cos(b)-sin(a)*sin(b)\)
+微分形式：\((sin(x))'=cos(x), (cos(x))'=-sin(x)\)
+
+3. 对数函数
+\((lnx)'=\frac{1}{x}\)
+
+4. 指数函数
+\((e^x)'=e^x, (a^x)'=lna*a^x\)
 
 #### General
-导数乘法法则 product rule
+1. **导数乘法法则 product rule**
 $$ (uv)' = u'v + uv'$$
 $$ (u/v)' = (u'v-uv')/v^2$$
 
-导数加法法则 
+2. **导数加法法则** 
 $$ (u+v)' = u' + v' $$
 
-合成法则 composition rule/ chain rule
+3. **合成法则 composition rule/ chain rule**
 $$\frac{dy}{dt} = \frac{dy}{dx} * \frac{dx}{dt}$$
 具体到应用其实就是使用换元法，比如
 $$ ((sint)^{10})' = 10(sint)^{9}*cost$$
-#### Higher Derivative
+
+#### Implict Equation
+隐式函数，就是自变量和因变量之间的关系没有显式地表达出来，比如\(y = 2x\)这样地函数，因变量y和自变量x地关系是很明确的。而对于函数\(y^2+x^2=1\),\(y\)和\(x\)之间的关系没有显式表达出来，这样的函数就是隐式函数。
+如果已知一个隐式函数，想要计算\(y\)的导数，可以对函数里面各项对x求导，然后提取出y的导数即可。这个时候的表达式里面通常还含有y项，但是很多时候满足对函数分析的需求。
+
+
+#### Inverse Function
+反函数，利用反函数来计算原函数的导数。
+反函数定义：若 \(y = f(x), g(y) = x\), 则f和g互为反函数，且有\(f(g(x))=x\).
+利用反函数求原函数的导数，也借鉴了隐式函数的原理，比如计算\(y=tan^{-1}x\)的导数\(y'\),可以利用反函数\(tany=x\)，两边同时对ß(x\)求导可以得到:
+$$y'(tany)'=1$$
+$$y' = \frac{1}{(tany)'}=cos^2y=\frac{1}{1+x^2}$$
+而这里\(y\)的导数也就是我们想要计算的原函数的导数。
+
+同样的道理也可以计算\(sin^{-1}(x)\), 令\(y=sin^{-1}(x), sin(y)=x\)，则有
+$$ (sin(y))' = cos(y)*y' = 1$$
+接下来只需要知道\(cos(y)\)即可，利用三角函数可以得到\(cos(y)=(1-x^2)^{1/2}\)，当然要注意正负号的问题，但是可以得到最终的结果。
