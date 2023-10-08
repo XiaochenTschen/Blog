@@ -15,9 +15,9 @@
 1. power function
 对于形如\(f(x) = x^n\)这样的幂函数，其导数可以表示为\(f'(x) = nx^{n-1}\). 其中\(n\)为有理数。
 
-2. sin 和 cos
+2. 三角函数
 知识回顾：\(sin(a+b)=sin(a) *cos(b) + cos(a)*sin(b), cos(a+b)=cos(a)*cos(b)-sin(a)*sin(b)\)
-微分形式：\((sin(x))'=cos(x), (cos(x))'=-sin(x)\)
+微分形式：\((sin(x))'=cos(x), (cos(x))'=-sin(x)，(sin^{-1}(x))'=\frac{1}{\sqrt{1-x^2}}, (tan^{-1}(x))'=\frac{1}{{1-x^2}} \)
 
 3. 对数函数
 \((lnx)'=\frac{1}{x}\)
