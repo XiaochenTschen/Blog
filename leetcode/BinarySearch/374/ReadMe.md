@@ -1,0 +1,1 @@
+No code because a leetcode built-in API is called.
