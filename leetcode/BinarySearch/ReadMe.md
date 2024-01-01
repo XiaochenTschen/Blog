@@ -23,15 +23,16 @@ int findEle(std::vector<int>& arr, int tar)
 ```c++
 int findLeftBoundary(std::vector<int>& arr, int tar)
 {
+    if(arr.size() == 0) return -1;
     int l = 0, r = arr.size() - 1;
     int mid = 0;
-    while(l <= r)
+    while(l < r)
     {
         mid = l + (r-l)/2;
-        if(arr[mid] >= tar) r = mid - 1;
+        if(arr[mid] >= tar) r = mid;
         else l = mid + 1;
     }
-    return l < arr.size()?l:-1; /* if tar bigger than all elements, l == arr.size() which is not allowed */
+    return arr[l] == target?l:-1;
 }
 ```
 #### 找到某一个target的右边界
@@ -39,15 +40,16 @@ int findLeftBoundary(std::vector<int>& arr, int tar)
 ```c++
 int findRightBoundary(std::vector<int>& arr, int tar)
 {
+    if(arr.size() == 0) return -1;
     int l = 0, r = arr.size() - 1;
     int mid = 0;
     while(l <= r)
     {
         mid = l + (r-l+1)/2; /* this means l moves to r */
         if(arr[mid] > tar) r = mid - 1;
-        else l = mid + 1;
+        else l = mid;
     }
-    return r >= 0?r:-1;
+    return arr[r] == target?r:-1;
 }
 ```
 #### 找到某一个最合适的区间
