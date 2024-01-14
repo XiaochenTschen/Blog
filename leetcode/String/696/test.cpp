@@ -8,7 +8,6 @@ public:
     int countBinarySubstrings(std::string s) {
         int count1 = 0, ans = 0, count2 = 0;
         int l = 0, r = 0;
-        bool changed = false;
         while(r < s.length())
         {
             while(s[r] == s[l] && r < s.length())
