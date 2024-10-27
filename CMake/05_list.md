@@ -13,6 +13,9 @@ list(INSERT my_list 1 "blueberry")
 # 移除元素
 list(REMOVE_ITEM my_list "banana")
 
+# 合并list
+list(APEND my_list ${my_list2})
+
 # 获取列表长度
 list(LENGTH my_list list_length)
 message("The list length is ${list_length}")
