@@ -10,7 +10,7 @@
 确认好分支以后，保险期间同步一下远端代码，防止有新的更新被推送到远端。
 ```bash
 git fetch origin
-git switch main # skip is already in main
+git switch main # skip if already in main
 git pull --ff-only # 确保本地main和远端main保持一致，也就是本地没有对main做任何修改
 ```
 
@@ -48,15 +48,16 @@ Rebase会将开发分支上所有的commit放到main分支commit的前面，这�
 3. sqush(s): 将该commit的代码改动合并到上一个pick的提交，但是保留该commit的message，并和上一个message合并，下一步允许手动编辑合并后的message.
 4. drop(d): 放弃该commit，包括对代码所作的修改和commit message.
 
-如果有文件内容发生冲突的话，解决冲突。可以代开有冲突的文件，手动删除导致冲突的代码，或者使用VS Code提供的插件选择使用哪部代码分，或者使用git指令：
+如果有文件内容发生冲突的话，解决冲突。
+使用`git status`查看有哪些文件存在冲突。通常会看到两类冲突类型，一类是`both modified`, 比如同一个文件的同一个地方有不同的修改；一类是`both added`, 比如同时添加了相同的文件。
+可以打开有冲突的文件，手动删除导致冲突的代码，或者使用VS Code提供的插件选择使用哪部代码分，或者使用git指令：
 ```bash
 git checkout --ours -- path/to/file   #保留main的内容 OURS
 git checkout --theirs -- path/to/file #保留开发分支的内容 THEIRS
 ```
 
-保存解决完冲突的文件，并添加该文件：`git add path/to/file`. 继续rebase: `git rebase --continue`.
-
-继续解决冲突直至rebase结束。
+保存解决完冲突的文件，并添加该文件：`git add path/to/file`. 需要注意，解决一个冲突文件，add相应的文件，直到 `git status` 不显示存在冲突文件了。
+继续rebase: `git rebase --continue`.
 
 完成rebase后，将改动推送到远端：`git push -f`.
 或者使用更安全的指令先检查远端分支是否有人在你 rebase 期间又推了新的提交，如果有，它会拒绝覆盖，避免误删同事的工作： `git push --force-with-lease`.
