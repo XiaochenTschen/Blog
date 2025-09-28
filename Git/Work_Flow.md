@@ -48,6 +48,8 @@ Rebase会将开发分支上所有的commit放到main分支commit的前面，这�
 3. sqush(s): 将该commit的代码改动合并到上一个pick的提交，但是保留该commit的message，并和上一个message合并，下一步允许手动编辑合并后的message.
 4. drop(d): 放弃该commit，包括对代码所作的修改和commit message.
 
+这个时候列出的commit从上到下是按照时间从旧到新的顺序，需要注意的是最上面的信息是需要pick的，否则会报错。Sqush的信息会合并到上一个(旧的)commit里面，并且在接下来的编辑界面中可以进行编辑。
+
 如果有文件内容发生冲突的话，解决冲突。
 使用`git status`查看有哪些文件存在冲突。通常会看到两类冲突类型，一类是`both modified`, 比如同一个文件的同一个地方有不同的修改；一类是`both added`, 比如同时添加了相同的文件。
 可以打开有冲突的文件，手动删除导致冲突的代码，或者使用VS Code提供的插件选择使用哪部代码分，或者使用git指令：
