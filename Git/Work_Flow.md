@@ -17,7 +17,7 @@ git pull --ff-only # 确保本地main和远端main保持一致，也就是本地
 基于main分支创建新的开发分支： `git switch -c feature/my_task main`.
 或者`git fetch origin`后，不需要更新本地main分支，直接创建新分支：`git switch -c feature/my_task origin/main`
 
-开发任务完成后，将该分支推送到远端： `git push -u origin feature/my_task`
+开发任务完成后，将该分支推送到远端： `git push -u origin feature/my_task` 或者 `git push -u origin HEAD`
 
 #### Stash
 如果在开发过程中，需要临时完成一个其他的功能，这种情况下可以先将当前branch的内容保存起来，切换回main分支，拉取最新的更新，然后创建新的分支完成PR，最后返回之前的分支，导出之前的内容继续工作。
@@ -63,4 +63,12 @@ git checkout --theirs -- path/to/file #保留开发分支的内容 THEIRS
 
 完成rebase后，将改动推送到远端：`git push -f`.
 或者使用更安全的指令先检查远端分支是否有人在你 rebase 期间又推了新的提交，如果有，它会拒绝覆盖，避免误删同事的工作： `git push --force-with-lease`.
+
+#### Merge
+开发工作结束后，需要将开发分支的代码合并到main分支，这时可以生成一个PR并由其他人review代码。
+代码review过程中，如果其他人写下评论意见，可以在本地修改完代码后，重新push到远端，推荐使用指令 `git commit --amend --no-edit` 和 `git push -f`.
+
+#### 开发结束后
+开发结束后可以删除本地的分支，避免遗留太多的分支在本地，可以使用指令 `git branch -d feature/dev_branch`.
+如果远端残留开发过程中配合使用的debug分支和sandbox分支的话，可以使用指令 `git push origin --delete feature/xxx`
 
