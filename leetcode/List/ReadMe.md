@@ -90,3 +90,22 @@ ListNode* mergeSortedList(ListNode* l1, ListNode* l2)
 }
 ```
 
+#### 判断是否有环
+```c++
+// 使用快慢指针，快指针每次前进两步，慢指针每次前进一步
+// 如果快指针到达nullptr，说明链表中没有环
+// 如果快慢指针相遇，说明链表中存在环
+
+bool check_cycle_in_list(ListNode* root) {
+    ListNode *slow = root, *fast = root;
+    while(fast && fast->next) {
+        slow = slow->next;
+        fast = fast->next->next;
+
+        if(fast == slow) {
+            return true;
+        }
+    }
+    return false;
+}
+```

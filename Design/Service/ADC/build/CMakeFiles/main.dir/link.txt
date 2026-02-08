@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/main.dir/private/adc_chip1.c.o CMakeFiles/main.dir/private/adc_chip2.c.o CMakeFiles/main.dir/public/adc.c.o CMakeFiles/main.dir/main.c.o -o main 

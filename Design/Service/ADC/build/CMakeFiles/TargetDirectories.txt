@@ -1,0 +1,3 @@
+/home/chen/code/Blog/Design/Service/ADC/build/CMakeFiles/main.dir
+/home/chen/code/Blog/Design/Service/ADC/build/CMakeFiles/edit_cache.dir
+/home/chen/code/Blog/Design/Service/ADC/build/CMakeFiles/rebuild_cache.dir

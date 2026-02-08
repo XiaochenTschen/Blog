@@ -1,0 +1,25 @@
+{
+    "name": "Zephyr-Dev",
+    "image": "env-zephyr-espressif:latest",
+    "workspaceMount": "source=zephyr-dev-volume,target=/workspace,type=volume",
+    "workspaceFolder": "/workspace/zephyr-dev/workspace",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "ms-vscode.cpptools",
+          "ms-vscode.cmake-tools",
+          "nordic-semiconductor.nrf-devicetree",
+          "ms-vscode.hexeditor"
+        ]
+      }
+    },
+    "runArgs": [
+      "--name", "zephyr-container",
+      "-it",
+      "-p", "2222:22",
+      "-p", "3333:3333",
+      "-p", "8800:8800"
+    ],
+    "remoteUser": "root"
+  }
+  
