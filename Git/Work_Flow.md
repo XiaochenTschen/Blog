@@ -69,6 +69,6 @@ git checkout --theirs -- path/to/file #保留开发分支的内容 THEIRS
 代码review过程中，如果其他人写下评论意见，可以在本地修改完代码后，重新push到远端，推荐使用指令 `git commit --amend --no-edit` 和 `git push -f`.
 
 #### 开发结束后
-开发结束后可以删除本地的分支，避免遗留太多的分支在本地，可以使用指令 `git branch -d feature/dev_branch`.
+开发结束后可以删除本地的分支，避免遗留太多的分支在本地，可以使用指令 `git branch -D feature/dev_branch`.
 如果远端残留开发过程中配合使用的debug分支和sandbox分支的话，可以使用指令 `git push origin --delete feature/xxx`
 

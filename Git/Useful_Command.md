@@ -1,4 +1,18 @@
 ``
+#### Config
+``` bash
+git config --global user.name "Vorname Nachname"
+git config --global user.mail "email@address"
+git config --global init.defaultBranch main
+git config --global core.editor "vim"
+git config --global credential.helper store
+
+git config --list
+```
+
+#### Branch
+`git branch -m new-branch name` : change the branch name
+`git remote -v` : list repo remote url 
 #### Log
 `git log --oneline` : 用单行显示commit记录
 `git log -5 --oneline` : 用单行显示最近5条commit记录
